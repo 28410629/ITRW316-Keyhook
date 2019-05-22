@@ -231,7 +231,7 @@ public class GlobalKeyListener implements NativeKeyListener {
 	}
 
 	public void write(String s) {
-		while (filename.isEmpty() || filename.isBlank()) {
+		while (filename.isEmpty()) {
 			selectFile();
 		}
 		try {
