@@ -38,8 +38,6 @@ public class GlobalKeyListener implements NativeKeyListener {
 					break;
 				case "Num Lock":
 					break;
-				case "Print Screen":
-					break;
 				case "Undefined":
 					break;
 				case "Insert":
@@ -87,7 +85,7 @@ public class GlobalKeyListener implements NativeKeyListener {
 					break;
 				case "Close Bracket":
 					if (shift) {
-						writeOther("}");::::;
+						writeOther("}");
 					} else {
 						writeOther("]");
 					}
@@ -128,14 +126,14 @@ public class GlobalKeyListener implements NativeKeyListener {
 					break;
 				case "Period":
 					if (shift) {
-						writeOther(">"");
+						writeOther(">");
 					} else {
 						writeOther(".");
 					}
 					break;
 				case "Comma":
 					if (shift) {
-						writeOther("<"");
+						writeOther("<");
 					} else {
 						writeOther(",");
 					}
