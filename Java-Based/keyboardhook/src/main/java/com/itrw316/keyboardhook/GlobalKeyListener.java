@@ -27,7 +27,6 @@ public class GlobalKeyListener implements NativeKeyListener {
 
 	public void nativeKeyPressed(NativeKeyEvent e) {
 		String keyP = NativeKeyEvent.getKeyText(e.getKeyCode());
-		if(listen) {
 			switch (keyP) {
 				case "Enter":
 					writeOther("\n");
@@ -184,26 +183,7 @@ public class GlobalKeyListener implements NativeKeyListener {
 						writeAlphabet(capslock, keyP);
 					}
 					break;
-			}
-		} else {
-			switch (keyP) {
-				case "F1":
-					f1 = true;
-					shortcut();
-					break;
-				case "F4":
-					f4 = true;
-					shortcut();
-					break;
-				case "F5":
-					f5 = true;
-					shortcut();
-					break;
-				default:
-					System.out.println(keyP);
-					break;
-			}
-		}	
+			}	
 	}
 
 	public enum mouseDirections {
@@ -313,16 +293,20 @@ public class GlobalKeyListener implements NativeKeyListener {
 	}
 
 	public void write(String s) {
-		while (filename.isEmpty()) {
-			selectFile();
+		if (listen) {
+			while (filename.isEmpty()) {
+				selectFile();
+			}
+			try {
+				FileWriter write = new FileWriter(filename, true);
+				PrintWriter print = new PrintWriter(write);
+				print.print(s);
+				print.close();
+			} catch (IOException e) { 
+			} catch (Exception ex) { }
+		} else {
+			System.out.println(s);
 		}
-		try {
-			FileWriter write = new FileWriter(filename, true);
-			PrintWriter print = new PrintWriter(write);
-    		print.print(s);
-    		print.close();
-		} catch (IOException e) { 
-		} catch (Exception ex) { }
 	}
 
 	public void setFrame(Main main) {
