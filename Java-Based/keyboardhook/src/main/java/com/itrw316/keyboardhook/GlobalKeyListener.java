@@ -7,9 +7,9 @@ import javax.swing.filechooser.FileFilter;
 import org.jnativehook.keyboard.NativeKeyEvent;
 import org.jnativehook.keyboard.NativeKeyListener;
 
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.io.IOException;
 
 public class GlobalKeyListener implements NativeKeyListener {
@@ -104,7 +104,6 @@ public class GlobalKeyListener implements NativeKeyListener {
 				default:
 					if (shift) {
 						writeAlphabet(!capslock, keyP);
-						shift = false;
 					} else {
 						writeAlphabet(capslock, keyP);
 					}
@@ -232,13 +231,14 @@ public class GlobalKeyListener implements NativeKeyListener {
 	}
 
 	public void write(String s) {
+		while (filename.isEmpty() || filename.isBlank()) {
+			selectFile();
+		}
 		try {
-			while (filename.isEmpty() || filename.isBlank()) {
-				selectFile();
-			}
-			BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true));
-    		writer.append(s);
-    		writer.close();
+			FileWriter write = new FileWriter(filename, true);
+			PrintWriter print = new PrintWriter(write);
+    		print.print(s);
+    		print.close();
 		} catch (IOException e) { 
 		} catch (Exception ex) { }
 	}

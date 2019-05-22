@@ -1,0 +1,8 @@
+coen@W35-37ET:~/Documents/keyhooks/Java-Based$ java --version
+openjdk 12.0.1 2019-04-16
+OpenJDK Runtime Environment (build 12.0.1+12-Ubuntu-1)
+OpenJDK 64-Bit Server VM (build 12.0.1+12-Ubuntu-1, mixed mode, sharing)
+
+coen@W35-37ET:~/Documents/keyhooks/Java-Based$ javac --version
+javac 12.0.1
+coen@W35-37ET:~/Documents/keyhooks/Java-Based$ 
