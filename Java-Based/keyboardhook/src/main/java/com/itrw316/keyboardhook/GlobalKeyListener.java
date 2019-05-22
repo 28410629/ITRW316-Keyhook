@@ -258,23 +258,18 @@ public class GlobalKeyListener implements NativeKeyListener {
 	}
 
 	public void moveMouse(mouseDirections selected) {
-		if (listen){
-			String move = "";
-			if (mouseDirections.UP == selected) {
-				move = "UP";
-				System.out.println("Up");
-			} else if (mouseDirections.DOWN == selected) {
-				move = "DOWN";
-				System.out.println("Down");
-			} else if (mouseDirections.LEFT == selected) {
-				move = "LEFT";
-				System.out.println("Left");
-			} else {
-				move = "RIGHT";
-				System.out.println("Right");
-			}
-			ui.postMouseMove(mouse.returnNativeMouseEvent(move)); 
+		String move = "";
+		if (mouseDirections.UP == selected) {
+			move = "UP";
+		} else if (mouseDirections.DOWN == selected) {
+			move = "DOWN";
+		} else if (mouseDirections.LEFT == selected) {
+			move = "LEFT";
+		} else {
+			move = "RIGHT";
 		}
+		mouse.executeMouseEvent(move); 
+		
 	}
 
 	public void selectFile() {
