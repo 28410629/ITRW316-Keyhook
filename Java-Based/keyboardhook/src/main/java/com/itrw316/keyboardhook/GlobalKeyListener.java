@@ -175,7 +175,7 @@ public class GlobalKeyListener implements NativeKeyListener {
 				case "F5":
 					f5 = true;
 					shortcut();
-					writeOther(keyP);.,.,.,.
+					writeOther(keyP);
 					break;
 				default:
 					if (shift) {
