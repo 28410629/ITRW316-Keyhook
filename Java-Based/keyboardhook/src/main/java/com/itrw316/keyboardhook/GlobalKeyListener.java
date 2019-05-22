@@ -28,6 +28,24 @@ public class GlobalKeyListener implements NativeKeyListener {
 	public void nativeKeyPressed(NativeKeyEvent e) {
 		String keyP = NativeKeyEvent.getKeyText(e.getKeyCode());
 			switch (keyP) {
+				case "Unknown keyCode: 0xe4e":
+					writeOther("+");
+					break;
+				case "Unknown keyCode: 0xe4a":
+					writeOther("-");
+					break;
+				case "Print Screen":
+					break;
+				case "Num Lock":
+					break;
+				case "Print Screen":
+					break;
+				case "Undefined":
+					break;
+				case "Insert":
+					break;
+				case "Delete":
+					break;
 				case "Enter":
 					writeOther("\n");
 					break;
@@ -43,8 +61,36 @@ public class GlobalKeyListener implements NativeKeyListener {
 				case "Unknown keyCode: 0xe36":
 					shift = true;
 					break;
+				case "Semicolon":
+					writeOther(";");
+					break;
 				case "Minus":
-					writeOther("-");
+					if (shift) {
+						writeOther("=");
+					} else {
+						writeOther("-");
+					}
+					break;
+				case "Back Quote":
+					if (shift) {
+						writeOther("`");
+					} else {
+						writeOther("@");
+					}
+					break;
+				case "Open Bracket":
+					if (shift) {
+						writeOther("{");
+					} else {
+						writeOther("[");
+					}
+					break;
+				case "Close Bracket":
+					if (shift) {
+						writeOther("}");::::;
+					} else {
+						writeOther("]");
+					}
 					break;
 				case "Equals":
 					writeOther("=");
@@ -74,15 +120,25 @@ public class GlobalKeyListener implements NativeKeyListener {
 					break;
 				case "Escape":
 					break;
+				case "Alt":
+					break;
 				case "Tab":
 					break;
 				case "Backspace":
 					break;
 				case "Period":
-					writeOther(".");
+					if (shift) {
+						writeOther(">"");
+					} else {
+						writeOther(".");
+					}
 					break;
 				case "Comma":
-					writeOther(",");
+					if (shift) {
+						writeOther("<"");
+					} else {
+						writeOther(",");
+					}
 					break;
 				case "Clear":
 					break;
@@ -147,6 +203,16 @@ public class GlobalKeyListener implements NativeKeyListener {
 						writeOther(")");
 					} else {
 						writeOther(keyP);
+					}
+					break;
+				case "0":
+					if (!shift) {
+						writeOther("0");
+					}
+					break;
+				case "P":
+					if (!shift) {
+						writeOther("0");
 					}
 					break;
 				case "Up":
