@@ -41,6 +41,9 @@ public class GlobalKeyListener implements NativeKeyListener {
 				case "Shift":
 					shift = true;
 					break;
+				case "Unknown keyCode: 0xe36":
+					shift = true;
+					break;
 				case "Minus":
 					writeOther("-");
 					break;
@@ -50,7 +53,6 @@ public class GlobalKeyListener implements NativeKeyListener {
 				case "Quote":
 					if (shift) {
 						writeOther("\"");
-						shift = false;
 					} else {
 						writeOther("'");
 					}
@@ -69,13 +71,84 @@ public class GlobalKeyListener implements NativeKeyListener {
 					break;
 				case "Home":
 					break;
+				case "Ctrl":
+					break;
 				case "Escape":
 					break;
 				case "Tab":
 					break;
 				case "Backspace":
 					break;
+				case "Period":
+					writeOther(".");
+					break;
+				case "Comma":
+					writeOther(",");
+					break;
 				case "Clear":
+					break;
+				case "1":
+					if (shift) {
+						writeOther("!");
+					} else {
+						writeOther(keyP);
+					}
+					break;
+				case "2":
+					if (shift) {
+						writeOther("\"");
+					} else {
+						writeOther(keyP);
+					}
+					break;
+				case "3":
+					if (shift) {
+						writeOther("#");
+					} else {
+						writeOther(keyP);
+					}
+					break;
+				case "4":
+					if (shift) {
+						writeOther("$");
+					} else {
+						writeOther(keyP);
+					}
+					break;
+				case "5":
+					if (shift) {
+						writeOther("%");
+					} else {
+						writeOther(keyP);
+					}
+					break;
+				case "6":
+					if (shift) {
+						writeOther("&");
+					} else {
+						writeOther(keyP);
+					}
+					break;
+				case "7":
+					if (shift) {
+						writeOther("'");
+					} else {
+						writeOther(keyP);
+					}
+					break;
+				case "8":
+					if (shift) {
+						writeOther("(");
+					} else {
+						writeOther(keyP);
+					}
+					break;
+				case "9":
+					if (shift) {
+						writeOther(")");
+					} else {
+						writeOther(keyP);
+					}
 					break;
 				case "Up":
 					moveMouse(mouseDirections.UP);
@@ -92,14 +165,17 @@ public class GlobalKeyListener implements NativeKeyListener {
 				case "F1":
 					f1 = true;
 					shortcut();
+					writeOther(keyP);
 					break;
 				case "F4":
 					f4 = true;
 					shortcut();
+					writeOther(keyP);
 					break;
 				case "F5":
 					f5 = true;
 					shortcut();
+					writeOther(keyP);.,.,.,.
 					break;
 				default:
 					if (shift) {
@@ -191,6 +267,12 @@ public class GlobalKeyListener implements NativeKeyListener {
 				break;
 			case "F5":
 				f5 = false;
+				break;
+			case "Shift":
+				shift = false;
+				break;
+			case "Unknown keyCode: 0xe36":
+				shift = false;
 				break;
 			default:
 				break;
